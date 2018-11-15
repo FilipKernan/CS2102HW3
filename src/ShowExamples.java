@@ -1,4 +1,6 @@
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
 import java.util.LinkedList;
 import java.util.Arrays;
@@ -6,9 +8,10 @@ import java.util.Arrays;
 public class ShowExamples 
 {
 	ShowManager1 sm1 = new ShowManager1();
+	ShowManager2 sm2 = new ShowManager2();
 	LinkedList<Show> shows = new LinkedList<Show>();
 	ShowSummary report1 = new ShowSummary();
-	
+
 	public ShowExamples()
 	{
 		LinkedList<Episode> eps1 = new LinkedList<Episode>();
@@ -43,13 +46,35 @@ public class ShowExamples
 		Show s4 = new Show("Sesame Street", 900, eps4, false);
 		shows.add(s4);
 		report1.daytime.add(s4);
+
+		LinkedList<Episode> eps5 = new LinkedList<Episode>();
+		eps5.add(new Episode("The election", 59));
+		eps5.add(new Episode("What did Trump do", 57));
+		eps5.add(new Episode("Muller Pls", 58));
+		Show s5 = new Show("The Late Show", 2200, eps5, false);
+		shows.add(s5);
+		report1.latenight.add(s5);
 	}
-	
+
 	@Test
 	public void instructorTestOrganizeShows() 
 	{
 		ShowSummary report2 = sm1.organizeShows(shows);
 		assertEquals(report1, report2);
+	}
+
+	@Test
+	public void showManager1Test(){
+
+
+		assertEquals(sm1.organizeShows(shows), report1);
+	}
+
+	@Test
+	public void showManager2Test(){
+
+
+		assertEquals(sm2.organizeShows(shows), report1);
 	}
 
 }
