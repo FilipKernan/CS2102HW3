@@ -17,22 +17,26 @@ class Earthquake1 {
   public LinkedList<MaxHzReport> dailyMaxForMonth(LinkedList<Double> data,
                                                   int month) {
     LinkedList<Double> dataForMonth = dataForMonth(data,month);
-    LinkedList<Double> mesurements = new LinkedList<>();
+    LinkedList<Double> measurements = new LinkedList<>();
     LinkedList<MaxHzReport> result = new LinkedList<>();
-    double lastdate = 0;
+    Double lastdate = 0.0;
 
     for (int i = 0; i < dataForMonth.size(); i++){
-      if (isDate(dataForMonth.get(i))){
-        double max = 0;
-        for (int k = 0; k < mesurements.size(); k++){
-          if (mesurements.get(k) > max){
-            max = mesurements.get(k);
+      if (isDate(dataForMonth.get(i)) && lastdate != 0){
+        Double max = 0.0;
+        for (int k = 0; k < measurements.size(); k++){
+          if (measurements.get(k) > max){
+            max = measurements.get(k);
           }
         }
         result.add(new MaxHzReport(lastdate, max));
         lastdate = dataForMonth.get(i);
-      }else{
-        mesurements.add(dataForMonth.get(i));
+      }
+      else if(isDate(dataForMonth.get(i)) && lastdate == 0) {
+          lastdate = dataForMonth.get(i);
+      }
+      else{
+          measurements.add(dataForMonth.get(i));
       }
     }
 

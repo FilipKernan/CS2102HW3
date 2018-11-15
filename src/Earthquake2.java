@@ -33,7 +33,7 @@ class Earthquake2 {
       }
 
       LinkedList<MaxHzReport> listOfMax = new LinkedList<>();
-      for(int j = 0; j<listOfLists.size();) {
+      for(int j = 0; j<listOfLists.size(); j++) {
           if(extractMonth(listOfLists.get(j).getFirst()) == month) {    //You may look at this and say "Oh god why?!" and I feel the same. Sorry.\
               Double maximumSoFar = 0.0;
               for(int i = 1;  i<listOfLists.get(j).size(); i++) {      //Yeah this loop isn't much nicer is it...

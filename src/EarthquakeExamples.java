@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 public class EarthquakeExamples {
   Earthquake1 E1 = new Earthquake1();
+  Earthquake2 E2 = new Earthquake2();
   LinkedList<Double> noData = new LinkedList<Double>();
   LinkedList<Double> threeDates = new LinkedList<Double>();  
   LinkedList<MaxHzReport> NovReports = new LinkedList<MaxHzReport>();
@@ -22,9 +23,19 @@ public class EarthquakeExamples {
   }
 
   @Test
-  public void instructorTestEQ() { 
-    assertEquals(NovReports, 
-                 E1.dailyMaxForMonth(threeDates, 11));
+  public void testEarthquake1() {
+      assertEquals(NovReports, E1.dailyMaxForMonth(threeDates, 11));
   }
-
+  @Test
+  public void testEarthquake2() {
+      assertEquals(NovReports, E2.dailyMaxForMonth(threeDates, 11));
+  }
+  @Test
+  public void testAgainE1() {
+      assertEquals(noData, E1.dailyMaxForMonth(threeDates, 12));
+  }
+  @Test
+  public void testAgainE2() {
+      assertEquals(noData, E2.dailyMaxForMonth(threeDates, 12));
+  }
 }
