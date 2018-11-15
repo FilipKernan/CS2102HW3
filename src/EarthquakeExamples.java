@@ -8,7 +8,8 @@ public class EarthquakeExamples {
   LinkedList<Double> noData = new LinkedList<Double>();
   LinkedList<Double> threeDates = new LinkedList<Double>();  
   LinkedList<MaxHzReport> NovReports = new LinkedList<MaxHzReport>();
-  
+  LinkedList<MaxHzReport> OctReports = new LinkedList<MaxHzReport>();
+
   public EarthquakeExamples() {
     threeDates.add(20151013.0);
     threeDates.add(10.0);
@@ -20,6 +21,8 @@ public class EarthquakeExamples {
     threeDates.add(20151101.0);
     threeDates.add(6.0);
     NovReports.add(new MaxHzReport(20151101.0,6.0));
+    OctReports.add(new MaxHzReport(20151013.0, 10.0));
+    OctReports.add(new MaxHzReport(20151020.0, 50.0));
   }
 
   @Test
@@ -37,5 +40,13 @@ public class EarthquakeExamples {
   @Test
   public void testAgainE2() {
       assertEquals(noData, E2.dailyMaxForMonth(threeDates, 12));
+  }
+  @Test
+  public void testEarthquake1Oct() {
+    assertEquals(OctReports, E1.dailyMaxForMonth(threeDates, 10));
+  }
+  @Test
+  public void testEarthquake2Oct() {
+    assertEquals(OctReports, E2.dailyMaxForMonth(threeDates, 10));
   }
 }

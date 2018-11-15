@@ -21,14 +21,20 @@ class Earthquake1 {
     LinkedList<MaxHzReport> result = new LinkedList<>();
     Double lastdate = 0.0;
 
+
+
     for (int i = 0; i < dataForMonth.size(); i++){
-      if (isDate(dataForMonth.get(i)) && lastdate != 0){
+      if ((isDate(dataForMonth.get(i)) && lastdate != 0) || i == dataForMonth.size() - 1){
+        if (!isDate(dataForMonth.get(i))){
+          measurements.add(dataForMonth.get(i));
+        }
         Double max = 0.0;
         for (int k = 0; k < measurements.size(); k++){
           if (measurements.get(k) > max){
             max = measurements.get(k);
           }
         }
+
         result.add(new MaxHzReport(lastdate, max));
         lastdate = dataForMonth.get(i);
       }
