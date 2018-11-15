@@ -23,7 +23,7 @@ class ShowManager1 {
                 else if(current.broadcastTime >= 1700 && current.broadcastTime < 2200) {
 		            primeTimeShows.add(current);
                 }
-                else if(current.broadcastTime >= 2200 && current.broadcastTime < 100) {
+                else if(current.broadcastTime >= 2200 || current.broadcastTime < 100) {
 		            lateNightShows.add(current);
                 }
             }
