@@ -54,6 +54,14 @@ public class ShowExamples
 		Show s5 = new Show("The Late Show", 2200, eps5, false);
 		shows.add(s5);
 		report1.latenight.add(s5);
+
+		LinkedList<Episode> eps6 = new LinkedList<Episode>();
+		eps6.add(new Episode("Help", 59));
+		eps6.add(new Episode("I am traped", 57));
+		eps6.add(new Episode("In a computer", 58));
+		Show s6 = new Show("Send help", 2200, eps6, true);
+		shows.add(s6);
+
 	}
 
 	@Test

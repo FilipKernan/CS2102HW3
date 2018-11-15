@@ -10,44 +10,47 @@ class DataSmooth1 {
      */
   public LinkedList<Double> dataSmooth(LinkedList<Show> shows) 
   {
-      LinkedList<Double> showsAvg = calcAvg(shows);
-      for (int i = 0; i<showsAvg.size(); i++){
 
-          if (i >0 && i < showsAvg.size() -1){
-              Double lastShow = showsAvg.get(i - 1);
-              Double nextShow = showsAvg.get(i + 1);
-              if (showsAvg.get(i)> nextShow){
-                  showsAvg.set(i, (lastShow + nextShow)/2);
-              }
+      LinkedList<Double> showsSmooth = new LinkedList<>();
+      for (int i = 0; i<shows.size(); i++){
+
+          if (i > 0 && i < shows.size() -1){
+              Double lastShow = calcAvgLenght(shows.get(i - 1));
+              Double nextShow = calcAvgLenght(shows.get(i + 1));
+
+              showsSmooth.add((lastShow + nextShow + calcAvgLenght(shows.get(i)))/3);
+
+          }else{
+              showsSmooth.add(calcAvgLenght(shows.get(i)));
           }
       }
 
-	  return showsAvg;
+	  return showsSmooth;
 
   }
 
     /**
-     * Calculates the average lengths of the shows
-     * @param shows the list of shows that you want to calculate the averages of
-     * @return a LinkedList of the average lengths
+     * Calculates the average length of the episodes of a show
+     * @param show the show that you want the average length of the episodes
+     * @return The average length of an episode
      */
-    private LinkedList<Double> calcAvg(LinkedList<Show> shows){
-        LinkedList<Double> result = new LinkedList<>();
-        for (Show y: shows) {
+    private Double calcAvgLenght(Show show){
+
+
             double sum = 0;
             int count = 0;
-            for (Episode x: y.episodes) {
+            for (Episode x: show.episodes) {
                  count++;
                  sum += x.runTime;
             }
             if (count > 0){
-                y.setAvgLength(sum/count);
+                show.setAvgLength(sum/count);
             }else {
-                y.setAvgLength(-1.0);
+                show.setAvgLength(-1.0);
             }
-            result.add(y.avgLength);
-        }
-        return result;
+
+
+        return show.avgLength;
     }
 
 
