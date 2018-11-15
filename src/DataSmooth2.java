@@ -29,5 +29,6 @@ class DataSmooth2 {
               smoothRuntimes.add(avgRuntimes.get(k));
           }
       }
+      return smoothRuntimes;
   }
 }

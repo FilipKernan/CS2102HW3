@@ -8,8 +8,9 @@ class Earthquake2 {
   // extracts the month from an 8-digit date
   int extractMonth(double dateNum) { return ((int)dateNum % 10000) / 100; }
 
-  public LinkedList<MaxHzReport> dailyMaxForMonth(LinkedList<Double> data,
-                                                  int month) {
-    return null;
+  public LinkedList<MaxHzReport> dailyMaxForMonth(LinkedList<Double> data, int month) {
+
+      return null;
   }
 }
+// Why are these files indented with only 2 spaces? Why are we subjected to this suffering?
