@@ -86,3 +86,9 @@ public class ShowExamples
 	}
 
 }
+/*
+Show manager 1 cleans the data so that all specials are removed from the list and then sorts the shows and
+creates a ShowSummary.
+
+Show manager 2 processes whether or not a show is a special while sorting the shows.
+ */

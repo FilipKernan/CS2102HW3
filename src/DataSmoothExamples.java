@@ -118,3 +118,12 @@ public class DataSmoothExamples
 	}
 
 }
+/*
+Data smooth 2 computes the average values for each show, which is outputed as a linked list and then data smoothing is
+performed on that.
+Data smooth 1 computes the average length of a show when ever the length is needed in a calculation.
+
+
+
+
+ */
